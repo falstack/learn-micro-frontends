@@ -1,4 +1,4 @@
-import Vue from 'vue/dist/vue.esm';
+import Vue from 'vue/dist/vue.esm'
 
 function vueRender({ loading }) {
   return new Vue({
@@ -11,18 +11,18 @@ function vueRender({ loading }) {
     el: '#subapp-container',
     data() {
       return {
-        loading,
-      };
-    },
-  });
+        loading
+      }
+    }
+  })
 }
 
-let app = null;
+let app = null
 
 export default function render({ loading }) {
   if (!app) {
-    app = vueRender({ loading });
+    app = vueRender({ loading })
   } else {
-    app.loading = loading;
+    app.loading = loading
   }
 }

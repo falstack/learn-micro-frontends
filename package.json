@@ -13,7 +13,8 @@
     "install:page-2": "cd packages/page-2 && yarn",
     "start:page-2": "cd packages/page-2 && yarn dev",
     "start:main": "cd packages/main && yarn dev",
-    "start:main-multiple": "cd packages/main && yarn dev:multiple"
+    "start:main-multiple": "cd packages/main && yarn dev:multiple",
+    "lint": "eslint --ext .js,.ts --ignore-path .gitignore . --fix"
   },
   "devDependencies": {
     "lerna": "^3.22.1",

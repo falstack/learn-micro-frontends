@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { name } = require('./package');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { name } = require('./package')
 
 module.exports = {
   entry: process.env.MODE === 'multiple' ? './multiple.js' : './index.js',
@@ -11,17 +11,17 @@ module.exports = {
     disableHostCheck: true,
     compress: true,
     headers: {
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': '*'
     },
     historyApiFallback: true,
-    overlay: { warnings: false, errors: true },
+    overlay: { warnings: false, errors: true }
   },
   output: {
-    publicPath: '/',
+    publicPath: '/'
   },
   mode: 'development',
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   module: {
     rules: [
@@ -32,23 +32,24 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env']
-          },
-        },
+          }
+        }
       },
       {
         test: /\.(le|c)ss$/,
-        use: ['style-loader', 'css-loader', 'less-loader'],
-      },
-    ],
+        use: ['style-loader', 'css-loader', 'less-loader']
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: process.env.MODE === 'multiple' ? './multiple.html' : './index.html',
+      template:
+        process.env.MODE === 'multiple' ? './multiple.html' : './index.html',
       minify: {
         removeComments: true,
-        collapseWhitespace: true,
-      },
-    }),
-  ],
-};
+        collapseWhitespace: true
+      }
+    })
+  ]
+}
