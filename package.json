@@ -1,0 +1,22 @@
+{
+  "name": "learn-micro-frantend",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "package:install": "npm-run-all --serial build install:*",
+    "package:start": "npm-run-all --parallel start:*",
+    "package:start-multiple": "run-p start:main-multiple start:page-1 start:page-2",
+    "install:page-1": "cd packages/page-1 && yarn",
+    "start:page-1": "cd packages/page-1 && yarn dev",
+    "install:page-2": "cd packages/page-2 && yarn",
+    "start:page-2": "cd packages/page-2 && yarn dev",
+    "start:main": "cd packages/main && yarn dev",
+    "start:main-multiple": "cd packages/main && yarn dev:multiple"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "npm-run-all": "^4.1.5"
+  }
+}
